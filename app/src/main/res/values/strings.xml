@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">se2-simple-android</string>
+    <string name="abschicken">Abschicken</string>
+    <string name="antwort_vom_server">Antwort vom Server</string>
+    <string name="gib_deine_matrikelnummer_ein">Gib deine Matrikelnummer ein</string>
+    <string name="_0">{0}</string>
+    <string name="main_activity_title">NetworkTest</string>
 </resources>
