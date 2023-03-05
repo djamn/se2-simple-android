@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -54,10 +52,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void calculateInput(String number) {
-        // if statements dass keine leere Menge gibt
-        /*if(number.equals("")) {
+        // Check, ob kein leerer Input existiert
+        if (!number.equals("")) {
+            ((TextView) findViewById(R.id.textView5)).setText("Deine angegebene Zahl: " + number);
+        } else {
+            ((TextView) findViewById(R.id.textView5)).setText("Bitte gib eine gültige Zahl an!");
         }
-*/
-        ((TextView) findViewById(R.id.textView5)).setText(number + " Pressed Button");
+
     }
-}//
+}
