@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import org.w3c.dom.Text;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.InputStreamReader;
@@ -18,11 +20,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         findViewById(R.id.button).setOnClickListener(view -> {
-            TextView textView = findViewById(R.id.editTextNumber);
-            String number = textView.getText().toString();
-            sendInput(number);
-            System.out.println("Print");
+            sendInput(getTextFieldNumber());
         });
+        findViewById(R.id.button3).setOnClickListener(view -> {
+            calculateInput(getTextFieldNumber());
+        });
+    }
+
+    private String getTextFieldNumber() {
+        return ((TextView) findViewById(R.id.editTextNumber)).getText().toString();
     }
 
     private void sendInput(String inputUser) {
@@ -38,13 +44,20 @@ public class MainActivity extends AppCompatActivity {
 
                 outputServer = inFromServer.readLine();
                 System.out.println("Debug - Output from server: " + outputServer);
-                TextView outputLocale = findViewById(R.id.textView5);
-                outputLocale.setText(outputServer);
+                ((TextView) findViewById(R.id.textView5)).setText(outputServer);
 
                 clientSocket.close();
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }).start();
+    }
+
+    private void calculateInput(String number) {
+        // if statements dass keine leere Menge gibt
+        /*if(number.equals("")) {
+        }
+*/
+        ((TextView) findViewById(R.id.textView5)).setText(number + " Pressed Button");
     }
 }//
