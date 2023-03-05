@@ -5,4 +5,5 @@
     <string name="gib_deine_matrikelnummer_ein">Gib deine Matrikelnummer ein</string>
     <string name="_0">{0}</string>
     <string name="main_activity_title">NetworkTest</string>
+    <string name="berechnung">Berechnung</string>
 </resources>
