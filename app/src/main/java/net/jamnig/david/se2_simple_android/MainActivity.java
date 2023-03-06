@@ -17,16 +17,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.button).setOnClickListener(view -> {
+        findViewById(R.id.buttonSend).setOnClickListener(view -> {
             sendInput(getTextFieldNumber());
         });
-        findViewById(R.id.button3).setOnClickListener(view -> {
+        findViewById(R.id.buttonCalculate).setOnClickListener(view -> {
             calculateInput(getTextFieldNumber());
         });
     }
 
     private String getTextFieldNumber() {
-        return ((TextView) findViewById(R.id.editTextNumber)).getText().toString();
+        return ((TextView) findViewById(R.id.textFieldInput)).getText().toString();
     }
 
     private void sendInput(String inputUser) {
@@ -42,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
                 outputServer = inFromServer.readLine();
                 System.out.println("Debug - Output from server: " + outputServer);
-                ((TextView) findViewById(R.id.textView5)).setText(outputServer);
+                ((TextView) findViewById(R.id.textViewButtonOutput)).setText(outputServer);
 
                 clientSocket.close();
             } catch (Exception e) {
@@ -62,9 +62,9 @@ public class MainActivity extends AppCompatActivity {
 
             String result1 = getFactors(arr).toString();
 
-            ((TextView) findViewById(R.id.textView5)).setText("Gemeinsame Teiler: " + result1);
+            ((TextView) findViewById(R.id.textViewButtonOutput)).setText("Gemeinsame Teiler: " + result1);
         } else {
-            ((TextView) findViewById(R.id.textView5)).setText("Bitte gib eine gültige Zahl an!");
+            ((TextView) findViewById(R.id.textViewButtonOutput)).setText("Bitte gib eine gültige Zahl an!");
         }
 
     }
