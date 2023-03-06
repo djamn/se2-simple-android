@@ -6,6 +6,7 @@
     <string name="_0">{0}</string>
     <string name="main_activity_title">NetworkTest</string>
     <string name="berechnung">Berechnung</string>
+    <string name="no_indizes">Keine</string>
     <string name="valid_number_error">Bitte gib eine gültige Zahl an!</string>
     <string name="output_factor_indizes_title">Gemeinsame Teilerindizes: %s</string>
 </resources>
