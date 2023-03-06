@@ -54,43 +54,48 @@ public class MainActivity extends AppCompatActivity {
     private void calculateInput(String number) {
         // Check, ob kein leerer Input existiert
         if (!number.equals("")) {
-            ((TextView) findViewById(R.id.textView5)).setText("Deine angegebene Zahl: " + number);
-
             int[] arr = new int[number.length()];
-            int[] arrReversed = new int[number.length()];
+
             for (int i = 0; i < number.length(); i++) {
                 arr[i] = Character.getNumericValue(number.charAt(i));
             }
 
-            for(int i = arr.length-1, j = 0; i >= 0; i--, j++) {
-                arrReversed[j] = arr[i];
-            }
-
-            // Todo sortieren & doppelte Sachen ausschließen
             String result1 = getFactors(arr).toString();
-            String result2 = getFactors(arrReversed).toString();
 
-            ((TextView) findViewById(R.id.textView5)).setText("Gemeinsame Teiler: " + result1 + " " + result2);
-
-
+            ((TextView) findViewById(R.id.textView5)).setText("Gemeinsame Teiler: " + result1);
         } else {
             ((TextView) findViewById(R.id.textView5)).setText("Bitte gib eine gültige Zahl an!");
         }
 
     }
 
-    private StringBuilder getFactors(int [] arr) {
+    private StringBuilder getFactors(int[] arr) {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] > 1 && arr[j] > 1) {
                     if (arr[i] % arr[j] == 0) {
-                        System.out.println(arr[i] + " hat den gemeinsamen Teiler " + arr[j]);
-                        builder.append(i + " " + j + " ");
+                        System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
+                        builder.append("[" + i + ", " + j + "] ");
                     }
                 }
             }
         }
+//        builder.append("\nRückgängig: ");
+        System.out.println("Rückgängig:");
+        for (int i = arr.length - 1; i >= 0; i--) {
+            for (int j = i - 1; j >= 0; j--) {
+                if (arr[i] > 1 && arr[j] > 1) {
+                    if (arr[i] != arr[j]) {
+                        if (arr[i] % arr[j] == 0) {
+                            System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
+                            builder.append("[" + i + ", " + j + "] ");
+                        }
+                    }
+                }
+            }
+        }
+
         return builder;
     }
 }
