@@ -72,14 +72,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private StringBuilder getFactors(int[] arr) {
-        int counter = 0;
+        int counter = 0; // Dient zum Check, ob keine gemeinsamen Indizes existieren
         StringBuilder builder = new StringBuilder();
         // Liest 1x von vorne bis hinten (2 Pointer, einer i und einer i+1,
         // welcher jedes i durchiteriert und nach arr[i] % arr[j] Ausschau hält
         for (int i = 0; i < arr.length; i++) {
             for (int j = i + 1; j < arr.length; j++) {
-                if (arr[i] > 1 && arr[j] > 1) {
-                    if (arr[i] % arr[j] == 0) {
+                if (arr[i] > 1 && arr[j] > 1) { // Check ob Teiler > 1
+                    if (arr[i] % arr[j] == 0) { // Teilercheck
                         counter++;
                         builder.append("[").append(i).append(", ").append(j).append("] ");
                     }
@@ -90,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = arr.length - 1; i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
                 if (arr[i] > 1 && arr[j] > 1) {
-                    if (arr[i] != arr[j]) {
+                    if (arr[i] != arr[j]) { // Gleiche Werte, die bereits in (1) Loop vorgekommen sind werden nicht mehr ausgegeben
                         if (arr[i] % arr[j] == 0) {
                             counter++;
                             builder.append("[").append(i).append(", ").append(j).append("] ");
