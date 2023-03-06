@@ -51,20 +51,20 @@ public class MainActivity extends AppCompatActivity {
         }).start();
     }
 
-    private void calculateInput(String number) {
+    private void calculateInput(String inputValue) {
         // Check, ob kein leerer Input existiert
-        if (!number.equals("")) {
-            int[] arr = new int[number.length()];
+        if (!inputValue.equals("")) {
+            int[] arr = new int[inputValue.length()];
 
-            for (int i = 0; i < number.length(); i++) {
-                arr[i] = Character.getNumericValue(number.charAt(i));
+            for (int i = 0; i < inputValue.length(); i++) {
+                arr[i] = Character.getNumericValue(inputValue.charAt(i));
             }
 
-            String result1 = getFactors(arr).toString();
+            String factorIndizes = getFactors(arr).toString();
 
-            ((TextView) findViewById(R.id.textViewButtonOutput)).setText("Gemeinsame Teiler: " + result1);
+            ((TextView) findViewById(R.id.textViewButtonOutput)).setText(String.format(getString(R.string.output_factor_indizes_title), factorIndizes));
         } else {
-            ((TextView) findViewById(R.id.textViewButtonOutput)).setText("Bitte gib eine gültige Zahl an!");
+            ((TextView) findViewById(R.id.textViewButtonOutput)).setText(R.string.valid_number_error);
         }
 
     }
@@ -76,20 +76,18 @@ public class MainActivity extends AppCompatActivity {
                 if (arr[i] > 1 && arr[j] > 1) {
                     if (arr[i] % arr[j] == 0) {
                         System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
-                        builder.append("[" + i + ", " + j + "] ");
+                        builder.append("[").append(i).append(", ").append(j).append("] ");
                     }
                 }
             }
         }
-//        builder.append("\nRückgängig: ");
-        System.out.println("Rückgängig:");
         for (int i = arr.length - 1; i >= 0; i--) {
             for (int j = i - 1; j >= 0; j--) {
                 if (arr[i] > 1 && arr[j] > 1) {
                     if (arr[i] != arr[j]) {
                         if (arr[i] % arr[j] == 0) {
                             System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
-                            builder.append("[" + i + ", " + j + "] ");
+                            builder.append("[").append(i).append(", ").append(j).append("] ");
                         }
                     }
                 }
