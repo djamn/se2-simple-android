@@ -17,12 +17,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.buttonSend).setOnClickListener(view -> {
-            sendInput(getTextFieldNumber());
-        });
-        findViewById(R.id.buttonCalculate).setOnClickListener(view -> {
-            calculateInput(getTextFieldNumber());
-        });
+        findViewById(R.id.buttonSend).setOnClickListener(view -> sendInput(getTextFieldNumber()));
+        findViewById(R.id.buttonCalculate).setOnClickListener(view -> calculateInput(getTextFieldNumber()));
     }
 
     private String getTextFieldNumber() {
@@ -66,7 +62,6 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ((TextView) findViewById(R.id.textViewButtonOutput)).setText(R.string.valid_number_error);
         }
-
     }
 
     private StringBuilder getFactors(int[] arr) {
@@ -75,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             for (int j = i + 1; j < arr.length; j++) {
                 if (arr[i] > 1 && arr[j] > 1) {
                     if (arr[i] % arr[j] == 0) {
-                        System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
+//                        System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
                         builder.append("[").append(i).append(", ").append(j).append("] ");
                     }
                 }
@@ -86,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
                 if (arr[i] > 1 && arr[j] > 1) {
                     if (arr[i] != arr[j]) {
                         if (arr[i] % arr[j] == 0) {
-                            System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
+//                            System.out.println(arr[i] + ", " + arr[j] + " haben den gemeinsamen Teiler " + arr[j]);
                             builder.append("[").append(i).append(", ").append(j).append("] ");
                         }
                     }
