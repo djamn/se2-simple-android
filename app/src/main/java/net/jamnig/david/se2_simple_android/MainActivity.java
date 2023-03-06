@@ -57,7 +57,6 @@ public class MainActivity extends AppCompatActivity {
             }
 
             String factorIndizes = getFactors(arr).toString();
-
             ((TextView) findViewById(R.id.textViewButtonOutput)).setText(String.format(getString(R.string.output_factor_indizes_title), factorIndizes));
         } else {
             ((TextView) findViewById(R.id.textViewButtonOutput)).setText(R.string.valid_number_error);
