@@ -63,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    // Berechnet die gemeinsamen Teiler (geht Zahlen einmal von hinten und einmal von vorne durch)
+    // Gleiche Zahlen werden nur einmal beachtet
     private StringBuilder getFactors(int[] arr) {
         int counter = 0;
         StringBuilder builder = new StringBuilder();
