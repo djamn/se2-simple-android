@@ -64,13 +64,14 @@ public class MainActivity extends AppCompatActivity {
 
             // Holt sich die Indizes der gemeinsamen Teiler
             String factorIndizes = getFactors(arr).toString();
-
             ((TextView) findViewById(R.id.textViewButtonOutput)).setText(String.format(getString(R.string.output_factor_indizes_title), factorIndizes)); // Ersetzt Output-Textview
         } else {
             ((TextView) findViewById(R.id.textViewButtonOutput)).setText(R.string.valid_number_error);
         }
     }
 
+    // Berechnet die gemeinsamen Teiler (geht Zahlen einmal von hinten und einmal von vorne durch)
+    // Gleiche Zahlen werden nur einmal beachtet
     private StringBuilder getFactors(int[] arr) {
         int counter = 0; // Dient zum Check, ob keine gemeinsamen Indizes existieren
         StringBuilder builder = new StringBuilder();
