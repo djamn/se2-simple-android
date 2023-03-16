@@ -11,7 +11,7 @@ public class alterning_digit_sum {
         int digitSum = numericalValues[0];
 
         for (int i = 1; i < numericalValues.length; i++) {
-            if (numericalValues[i] % 2 == 0) {
+            if (i % 2 == 0) {
                 digitSum += numericalValues[i];
             } else {
                 digitSum -= numericalValues[i];
